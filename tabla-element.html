@@ -1,0 +1,57 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../polymer/lib/elements/dom-repeat.html">
+
+<dom-module id="tabla-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      th, td {
+        border: 1px solid black;
+      }
+      table{
+        border: 1px solid black;
+        width: 100%;
+      }
+    </style>
+    <table>
+        <tr>
+          <th>Primer Nombre</th>
+          <th>Segundo Nombre</th>
+        </tr>
+        <template is="dom-repeat" items="{{datostabla}}" as="nombre">
+          <tr>
+            <td>[[nombre.primero]]</td>
+            <td>[[nombre.segundo]]</td>
+          </tr>
+        </template>
+      </table>
+    </template>
+  <script>
+    /**
+     * `ejemplo-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class TablaElement extends Polymer.Element {
+      static get is() { return 'tabla-element'; }
+      static get properties() {
+        return {
+          datostabla:{
+            type: Array,
+            value(){
+              return[
+              ];
+            }
+          }
+        };
+      }
+    }
+    window.customElements.define(TablaElement.is, TablaElement);
+
+  </script>
+</dom-module>
